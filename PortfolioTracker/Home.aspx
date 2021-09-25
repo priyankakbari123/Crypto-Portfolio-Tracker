@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="PortfolioTracker.Home" %>
+﻿<%@ Page Async="true" Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="PortfolioTracker.Home" %>
 
 <!DOCTYPE html>
 
@@ -9,6 +9,9 @@
         .center {
             margin-left: auto;
             margin-right: auto;
+        }
+        .auto-style1 {
+            margin-left: 0px;
         }
     </style>
 </head>
@@ -30,10 +33,20 @@
                     <tr>
                         <td>Coin Name:</td>
                         <td>
-                            <asp:DropDownList ID="DropDownList1" runat="server">
+                            <asp:DropDownList ID="CoinDropDown" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="auto-style1">
+                                <asp:ListItem>Select Coin</asp:ListItem>
+                                <asp:ListItem>BTCUSDT</asp:ListItem>
+                                <asp:ListItem>BNBUSDT</asp:ListItem>
+                                <asp:ListItem>ETHUSDT</asp:ListItem>
+                                <asp:ListItem>ADAUSDT</asp:ListItem>
+                                <asp:ListItem>XRPUSDT</asp:ListItem>
+                                <asp:ListItem>SOLUSDT</asp:ListItem>
+                                <asp:ListItem>DOTUSDT</asp:ListItem>
+                                <asp:ListItem>DOGEUSDT</asp:ListItem>
+                                <asp:ListItem>AVAXUSDT</asp:ListItem>
+                                <asp:ListItem>VETUSDT</asp:ListItem>
                             </asp:DropDownList>
                             &nbsp;
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownList1" ErrorMessage="*Required" BackColor="Red"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>

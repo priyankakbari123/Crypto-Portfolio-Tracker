@@ -59,3 +59,11 @@ F:\Projects\PortfolioTracker\PortfolioTracker\obj\Debug\PortfolioTracker.dll
 F:\Projects\PortfolioTracker\PortfolioTracker\obj\Debug\PortfolioTracker.pdb
 F:\Projects\PortfolioTracker\PortfolioTracker\bin\EntityFramework.dll
 F:\Projects\PortfolioTracker\PortfolioTracker\bin\EntityFramework.xml
+F:\Projects\PortfolioTracker\PortfolioTracker\bin\Binance.Net.dll
+F:\Projects\PortfolioTracker\PortfolioTracker\bin\CryptoExchange.Net.dll
+F:\Projects\PortfolioTracker\PortfolioTracker\bin\Microsoft.Extensions.Logging.Abstractions.dll
+F:\Projects\PortfolioTracker\PortfolioTracker\bin\Newtonsoft.Json.dll
+F:\Projects\PortfolioTracker\PortfolioTracker\bin\Binance.Net.xml
+F:\Projects\PortfolioTracker\PortfolioTracker\bin\CryptoExchange.Net.xml
+F:\Projects\PortfolioTracker\PortfolioTracker\bin\Microsoft.Extensions.Logging.Abstractions.xml
+F:\Projects\PortfolioTracker\PortfolioTracker\bin\Newtonsoft.Json.xml
