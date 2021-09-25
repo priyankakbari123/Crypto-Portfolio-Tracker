@@ -52,17 +52,17 @@
                     <tr>
                         <td>Quanity:</td>
                         <td>
-                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="quantityIb" runat="server"></asp:TextBox>
                             &nbsp;
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox1" ErrorMessage="*Required" BackColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="quantityIb" ErrorMessage="*Required" BackColor="Red"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
                         <td>Buying Price:</td>
                         <td>
-                            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="buypriceIb" runat="server"></asp:TextBox>
                             &nbsp;
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox2" ErrorMessage="*Required" BackColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="buypriceIb" ErrorMessage="*Required" BackColor="Red"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -73,7 +73,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button ID="AddBtn" runat="server" Text="Add" />
+                            <asp:Button ID="AddBtn" runat="server" Text="Add" OnClick="AddBtn_Click" />
                         </td>
                         <td>&nbsp;</td>
                     </tr>
@@ -81,11 +81,7 @@
             </div>
         </form>
     </center>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Coin], [Quantity], [BuyPrice], [TotalInvested] FROM [PortfolioDetails] WHERE ([UesrId] = @UesrId)">
-        <SelectParameters>
-            <asp:SessionParameter Name="UesrId" SessionField="UserId" Type="Int32" />
-        </SelectParameters>
-    </asp:SqlDataSource>
+    
     <p>
         &nbsp;</p>
 </body>

@@ -91,17 +91,17 @@
     </Content>
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="PortfolioTrackerModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PortfolioTrackerModel.edmx</DependentUpon>
+      <LastGenOutput>PortfolioTrackerModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PortfolioTrackerModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PortfolioTrackerModel.edmx</DependentUpon>
+      <LastGenOutput>PortfolioTrackerModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Registration.aspx" />
-    <Content Include="userdetailsmodel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>userdetailsmodel.edmx</DependentUpon>
-      <LastGenOutput>userdetailsmodel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="userdetailsmodel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>userdetailsmodel.edmx</DependentUpon>
-      <LastGenOutput>userdetailsmodel.cs</LastGenOutput>
-    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +119,24 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PortfolioDetail.cs">
+      <DependentUpon>PortfolioTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortfolioTrackerModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PortfolioTrackerModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortfolioTrackerModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PortfolioTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortfolioTrackerModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PortfolioTrackerModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
@@ -128,32 +146,17 @@
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserDetail.cs">
-      <DependentUpon>userdetailsmodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="userdetailsmodel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>userdetailsmodel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="userdetailsmodel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>userdetailsmodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="userdetailsmodel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>userdetailsmodel.edmx</DependentUpon>
+      <DependentUpon>PortfolioTrackerModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <EntityDeploy Include="userdetailsmodel.edmx">
+    <EntityDeploy Include="PortfolioTrackerModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>userdetailsmodel.Designer.cs</LastGenOutput>
+      <LastGenOutput>PortfolioTrackerModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="userdetailsmodel.edmx.diagram">
-      <DependentUpon>userdetailsmodel.edmx</DependentUpon>
+    <Content Include="PortfolioTrackerModel.edmx.diagram">
+      <DependentUpon>PortfolioTrackerModel.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
