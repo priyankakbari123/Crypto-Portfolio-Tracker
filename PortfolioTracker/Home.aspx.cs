@@ -11,7 +11,17 @@ namespace PortfolioTracker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["userName"]!=null)
+                userNameLabel.Text = (String)Session["userName"];
+            else
+                Response.Redirect("Login.aspx");
+        }
 
+
+        protected void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
         }
     }
 }

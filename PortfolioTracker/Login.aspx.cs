@@ -21,11 +21,14 @@ namespace PortfolioTracker
             user = db.UserDetails.Where(s => s.email == lemail.Text && s.password == lpassword.Text).FirstOrDefault<UserDetail>();
             if (user!=default)
             {
+                Session["UserID"] = user.Id;
+                Session["UserName"] = user.name;
                 Response.Redirect("Home.aspx");
             }
             else
             {
-                Response.Redirect("Registration.aspx");
+                UsernamePasswordError.Text = "Username or Password Mismatch, Please Try Again";
+                //Response.Redirect("Registration.aspx");
             }
         }
     }

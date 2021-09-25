@@ -26,5 +26,6 @@ namespace PortfolioTracker
         }
     
         public DbSet<UserDetail> UserDetails { get; set; }
+
     }
 }
