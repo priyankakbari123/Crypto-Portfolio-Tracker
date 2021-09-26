@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    
     <style type="text/css">
         .center {
             margin-left: auto;
@@ -79,10 +80,13 @@
                     </tr>
                 </table>
             </div>
+             <p>
+        <asp:GridView ID="GridView1" runat="server">
+        </asp:GridView>
+    </p>
         </form>
     </center>
     
-    <p>
-        &nbsp;</p>
-</body>
+   
+    </body>
 </html>

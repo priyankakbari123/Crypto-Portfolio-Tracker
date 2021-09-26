@@ -21,7 +21,7 @@ namespace PortfolioTracker
             user = db.UserDetails.Where(s => s.email == lemail.Text && s.password == lpassword.Text).FirstOrDefault<UserDetail>();
             if (user!=default)
             {
-                Session["UserID"] = user.Id;
+                Session["UserID"] =user.Id;
                 Session["UserName"] = user.name;
                 Response.Redirect("Home.aspx");
             }
