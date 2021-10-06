@@ -15,6 +15,7 @@
             margin-left: 0px;
         }
     </style>
+    <meta http-equiv="refresh" content="300" >
 </head>
 <body>
     <center>
@@ -25,7 +26,10 @@
                 Welcome&nbsp;
             <asp:Label ID="userNameLabel" runat="server"></asp:Label>
                 &nbsp;&nbsp;&nbsp;
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Display.aspx">Portfolio</asp:HyperLink>
+                &nbsp;&nbsp;&nbsp;
                 <asp:LinkButton ID="LogoutBtn" runat="server" OnClick="LogoutBtn_Click" CausesValidation="False">Logout</asp:LinkButton>
+                &nbsp;
                 <br />
                 <br />
                 <h2>Add New Coin</h2>

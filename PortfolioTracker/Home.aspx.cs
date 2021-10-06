@@ -15,30 +15,45 @@ namespace PortfolioTracker
 {
     public partial class Home : System.Web.UI.Page
     {
-        public string coin;
+        public string coin,SelectedCoin="Select Coin";
+        public string[] coins = new string[] { "BTCUSDT", "BNBUSDT", "ETHUSDT", "ADAUSDT", "XRPUSDT", "SOLUSDT", "DOTUSDT", "DOGEUSDT", "AVAXUSDT", "VETUSDT" };
         public float currPrice;
 
         private async Task GetCoinPrice()
         {
             var client = new BinanceClient(new BinanceClientOptions() { });
-
-            var callResult = await client.Spot.Market.GetPriceAsync(coin);
-            CurrentPrice.Text = callResult.Data.Price.ToString();
-            currPrice = float.Parse(callResult.Data.Price.ToString());
             
+            for(int i = 0; i < 10; i++)
+            {
+                coin = coins[i];
+                var callResult = await client.Spot.Market.GetPriceAsync(coin);
+                //CurrentPrice.Text = callResult.Data.Price.ToString();
+                Application[coin] = float.Parse(callResult.Data.Price.ToString());
+            }
+            //var callResult =await client.Spot.Market.GetPriceAsync(coin);
+            //CurrentPrice.Text = callResult.Data.Price.ToString();
+            //currPrice = float.Parse(callResult.Data.Price.ToString());
+            //Application["BTCUSDT"] = currPrice;
+            //CurrentPrice.Text = Application[SelectedCoin].ToString();
+            //DisplayDataAsync();
+            
+            //return float.Parse(callResult.Data.Price.ToString());
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(Session["userName"]!=null)
                 userNameLabel.Text = (String)Session["userName"];
             else
                 Response.Redirect("Login.aspx");
-            //RegisterAsyncTask(new PageAsyncTask(GetCoinPrice));
-            DisplayData();
+            RegisterAsyncTask(new PageAsyncTask(GetCoinPrice));
+            ExecuteRegisteredAsyncTasks();
+            
 
         }
 
-        public void DisplayData()
+        /*
+        public void DisplayDataAsync()
         {
             //print data in table
             PortfolioTrackerEntities db = new PortfolioTrackerEntities();
@@ -62,11 +77,16 @@ namespace PortfolioTracker
                 dr["Quantity"] = coinE.Quantity;
                 dr["TotalInvested"] = coinE.TotalInvested;
                 coin = coinE.Coin;
+
                 RegisterAsyncTask(new PageAsyncTask(GetCoinPrice));
-                ExecuteRegisteredAsyncTasks();
-                //GetCoinPrice();
-                float CurrP = currPrice;
-                dr["Profit/Loss"] = ((CurrP - coinE.BuyPrice) * 100)/coinE.BuyPrice;
+                //ExecuteRegisteredAsyncTasks();
+                //GetCoinPrice().Wait();
+                
+                //task.Wait();
+                //var result = task.Result;
+
+                //float CurrP = currPrice;
+                dr["Profit/Loss"] = ((currPrice - coinE.BuyPrice) * 100)/coinE.BuyPrice;
                 dt.Rows.Add(dr);
             }
             //coinEntry = (IEnumerable<PortfolioDetail>)db.PortfolioDetails.Where(s => s.UesrId == UId).Single<PortfolioDetail>();
@@ -75,7 +95,7 @@ namespace PortfolioTracker
             GridView1.DataSource = dt;
             GridView1.DataBind();
         }
-
+        */
 
         protected void LogoutBtn_Click(object sender, EventArgs e)
         {
@@ -85,14 +105,15 @@ namespace PortfolioTracker
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            coin = (String)CoinDropDown.SelectedItem.Text;
-            if(coin!="Select Coin") { 
-                RegisterAsyncTask(new PageAsyncTask(GetCoinPrice));
-                ExecuteRegisteredAsyncTasks();
+            SelectedCoin = (String)CoinDropDown.SelectedItem.Text;
+            if(SelectedCoin != "Select Coin") {
+                //RegisterAsyncTask(new PageAsyncTask(GetCoinPrice));
+                //ExecuteRegisteredAsyncTasks();
+                CurrentPrice.Text = Application[SelectedCoin].ToString();
+
             }
 
         }
-
        
 
         protected void AddBtn_Click(object sender, EventArgs e)
@@ -108,9 +129,7 @@ namespace PortfolioTracker
             c.TotalInvested= float.Parse(buypriceIb.Text) * float.Parse(quantityIb.Text);
             db.PortfolioDetails.Add(c);
             db.SaveChanges();
-            DisplayData();
+            Response.Redirect("Display.aspx");
         }
-
-        
     }
 }
