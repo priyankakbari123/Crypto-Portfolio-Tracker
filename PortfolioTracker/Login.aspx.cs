@@ -27,7 +27,7 @@ namespace PortfolioTracker
             }
             else
             {
-                UsernamePasswordError.Text = "Username or Password Mismatch, Please Try Again";
+                UsernamePasswordError.Text = "Invalid Credentials !";
                 //Response.Redirect("Registration.aspx");
             }
         }

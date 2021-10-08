@@ -26,7 +26,8 @@ namespace PortfolioTracker
             dt.Columns.Add(new DataColumn("CurrentPrice($)", typeof(float)));
             dt.Columns.Add(new DataColumn("Quantity", typeof(float)));
             dt.Columns.Add(new DataColumn("TotalInvested($)", typeof(float)));
-            dt.Columns.Add(new DataColumn("Profit/Loss(%)", typeof(float)));
+            dt.Columns.Add(new DataColumn("Profit/Loss(%)", typeof(string)));
+
             foreach (PortfolioDetail coinE in queryAll)
             {
                 DataRow dr = null;
@@ -43,7 +44,7 @@ namespace PortfolioTracker
 
 
                 
-                dr["Profit/Loss(%)"] = System.Math.Round((float)(((Currentprice - coinE.BuyPrice) * 100) / coinE.BuyPrice),2 );
+                dr["Profit/Loss(%)"] = System.Math.Round((float)(((Currentprice - coinE.BuyPrice) * 100) / coinE.BuyPrice),2 )+"%";
                 dt.Rows.Add(dr);
             }
             
